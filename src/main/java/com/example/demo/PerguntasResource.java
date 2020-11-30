@@ -18,9 +18,9 @@ public class PerguntasResource {
 
 	Random gerador = new Random();
 	
-	@RequestMapping(value = "/{id}", method=RequestMethod.GET)
-	public List<Pergunta> getPerguntas(@PathVariable Integer id){
-		log.info("ID Etapa: "+id);
+	@RequestMapping(value = "/empresa/{idEmpresa}/etapa/{idEtapa}", method=RequestMethod.GET)
+	public List<Pergunta> getPerguntas(@PathVariable Integer idEtapa){
+		log.info("ID Etapa: "+idEtapa);
 		List<Pergunta> listPerguntas = new ArrayList<>();				
 		for(int i=1;i<5;i++) {
 			List<Opcao> listOpcao = new ArrayList<>();
@@ -28,9 +28,7 @@ public class PerguntasResource {
 			 int idOpcao = gerador.nextInt(10);
 			 listOpcao.add(new Opcao(idOpcao, i+"_Resposta_"+idOpcao));
 		 }
-			
 	     listPerguntas.add(new Pergunta(gerador.nextInt(10), "Pergunta "+i, listOpcao));
-	    
 	    }
 	    return listPerguntas;
 	}

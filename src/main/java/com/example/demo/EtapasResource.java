@@ -17,7 +17,7 @@ public class EtapasResource {
 	
 	 Random gerador = new Random();
 	
-	@RequestMapping(method=RequestMethod.GET)
+	@RequestMapping(method=RequestMethod.GET,path = "/empresa/{id}")
 	public List<Etapa> getEtapas(){
 		List<Etapa> list = new ArrayList<>();
 		for(int i=1;i<5;i++) {
